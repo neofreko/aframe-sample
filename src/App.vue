@@ -1,32 +1,39 @@
 <template>
 <div id="container">
-  <div class="title">
-      <h1>
-        {{ msg }}
-      </h1>
-    </div>
-    <a-scene>
+
+    <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
       <a-assets>
-        <a-asset-item id="tree-obj" src="assets/mining-dump-truck.obj"></a-asset-item>
-        <a-asset-item id="tree-mtl" src="assets/mining-dump-truck.mtl"></a-asset-item>
+        <a-asset-item id="tree-obj" src="/assets/truck/mining-dump-truck.obj"></a-asset-item>
+        <a-asset-item id="tree-mtl" src="/assets/truck/mining-dump-truck.mtl"></a-asset-item>
       </a-assets>
+      <a-entity cursor-listener obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-150 -300 -150"></a-entity>
+      <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+      
     </a-scene>
     
-
-    <a-entity obj-model="obj: #tree-obj; mtl: #tree-mtl"></a-entity>
 </div>
 </template>
 
 <script>
-require('aframe');
+let AFRAME = require('aframe');
+
+AFRAME.registerComponent('cursor-listener', {
+  init: function () {
+    var COLORS = ['red', 'green', 'blue'];
+    this.el.addEventListener('click', function (evt) {
+      var randomIndex = Math.floor(Math.random() * COLORS.length);
+      this.setAttribute('material', 'color', COLORS[randomIndex]);
+      console.log('I was clicked at: ', evt.detail.intersection.point);
+    });
+  }
+});
+
 export default {
     data() {
         return {
-            msg: 'Basic A-frame scene rendered in Vue.js',
-            ascene:
-            '<a-scene>\
-                <a-sphere color="#999" radius="2" position="0 4 -15"></a-sphere>\
-            </a-scene>'
+            
         }
     }
 }
