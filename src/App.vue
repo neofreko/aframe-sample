@@ -1,5 +1,5 @@
 <template>
-<div id="container">
+
 
     <a-scene inspector="url: https://aframe.io/releases/0.3.0/aframe-inspector.min.js">
       <a-assets>
@@ -8,12 +8,19 @@
       </a-assets>
       <a-entity cursor-listener obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-150 -300 -150"></a-entity>
       <a-camera>
-        <a-cursor></a-cursor>
+        <a-cursor
+          position="0 1 4"
+          cursor-visible="true"
+          cursor-scale="2"
+          cursor-color="#0095DD"
+          cursor-opacity="0.5">
+        </a-cursor>
       </a-camera>
-      
+
+      <a-sky color="#DDDDDD"></a-sky>
     </a-scene>
     
-</div>
+
 </template>
 
 <script>
