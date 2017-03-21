@@ -6,7 +6,7 @@
         <a-asset-item id="tree-obj" src="/assets/truck/mining-dump-truck.obj"></a-asset-item>
         <a-asset-item id="tree-mtl" src="/assets/truck/mining-dump-truck.mtl"></a-asset-item>
       </a-assets>
-      <a-entity cursor-listener obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-150 -300 -150"></a-entity>
+      <a-entity cursor-listener obj-model="obj: #tree-obj; mtl: #tree-mtl" position="-150 -100 -400"></a-entity>
       <a-camera>
         <a-cursor
           position="0 1 4"
