@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "webpack -p --config ./webpack.prod.config.js --progress"
   },
   "dependencies": {
     "aframe": "^0.5.0",
